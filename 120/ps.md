@@ -20,3 +20,8 @@ using n2 space
 save dp[x][y] = el[x][y]+max(dp[x-1][y],dp[x-1][y-1])
 
 Stretch: Using only o(n) space  [n=>numbers of rows]
+
+Observation:
+only last row is used while calculting the next
+First idea was to use just a single n space array to calculate
+but unable to implement it, ended up using 2 after seing the solution hints

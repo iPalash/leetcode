@@ -39,7 +39,7 @@ func mn(a, b int) int {
 	}
 }
 
-func minimumTotal(triangle [][]int) int {
+func minimumTotal_nsquare(triangle [][]int) int {
 	dp := make([][]int, 0)
 	n := len(triangle)
 	first := []int{triangle[0][0]}
@@ -68,6 +68,47 @@ func minimumTotal(triangle [][]int) int {
 	}
 	ans := dp[n-1][0]
 	for _, el := range dp[n-1] {
+		if el < ans {
+			ans = el
+		}
+	}
+	fmt.Println(ans)
+	return ans
+
+}
+
+func minimumTotal(triangle [][]int) int {
+
+	n := len(triangle)
+	dp1 := make([]int, n)
+	dp2 := make([]int, n)
+	dp1[0] = triangle[0][0]
+	dp2[0] = triangle[0][0]
+	// fmt.Println(triangle, dp, dp[0][0], triangle[1][0])
+	for i := 1; i < n; i++ {
+		for j := 0; j <= i; j++ {
+			// fmt.Println(i, j, dp1, dp2)
+			if j == 0 {
+				dp2[j] = dp1[j] + triangle[i][j]
+			} else {
+				// two cases here too:
+				// case 1: when jth element exists in i: j<i
+				// case 2: when j=i
+				if j < i {
+					dp2[j] = mn(dp1[j], dp1[j-1]) + triangle[i][j]
+				} else {
+					dp2[j] = dp1[j-1] + triangle[i][j]
+				}
+			}
+			fmt.Println(i, j, dp1, dp2)
+
+		}
+		copy(dp1, dp2)
+		// fmt.Println(i, dp1, dp2)
+	}
+	// fmt.Print(dp)
+	ans := dp2[0]
+	for _, el := range dp2 {
 		if el < ans {
 			ans = el
 		}
