@@ -2,6 +2,8 @@ package common
 
 import (
 	"bufio"
+	"encoding/json"
+	"fmt"
 	"os"
 )
 
@@ -19,4 +21,11 @@ func ReadInput() []string {
 		}
 	}
 	return input
+}
+
+func PrettyPrint(v interface{}) {
+	b, err := json.Marshal(v)
+	if err == nil {
+		fmt.Println(string(b))
+	}
 }
