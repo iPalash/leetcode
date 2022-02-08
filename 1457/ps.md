@@ -24,3 +24,5 @@ All digits bar one must have even count
 
 
 A Simple graph traversal maintaining a dp of digit count being even or odd worked
+
+Extension: !TODO : Use bitwise operators to avoid using so much memory
