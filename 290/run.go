@@ -8,19 +8,19 @@ import (
 
 func wordPattern(pattern string, s string) bool {
 	words := strings.Split(s, " ")
-	patternMap := make(map[byte]string)
+	patternMap := make(map[int]string)
 	wordMap := make(map[string]byte)
-	if len(words)!=len(pattern){
+	if len(words) != len(pattern) {
 		return false
 	}
 	for idx, word := range words {
 		fmt.Println(pattern[idx], word, patternMap, wordMap)
-		if v, k := patternMap[pattern[idx]]; k {
+		if v, k := patternMap[int(pattern[idx])]; k {
 			if v != word {
 				return false
 			}
 		} else {
-			patternMap[pattern[idx]] = word
+			patternMap[int(pattern[idx])] = word
 		}
 		if v, k := wordMap[word]; k {
 			if v != pattern[idx] {
