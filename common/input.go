@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func ReadInput() []string {
@@ -21,6 +23,33 @@ func ReadInput() []string {
 		}
 	}
 	return input
+}
+
+func ReadArrayAndN() ([]int, int) {
+	s := ReadInput()
+	//Removing the []
+	arr := strings.Split(s[0][1:len(s[0])-1], ",")
+	var nums []int
+	for _, v := range arr {
+		tmp, _ := strconv.Atoi((v))
+		nums = append(nums, tmp)
+	}
+	tmp, _ := strconv.Atoi(s[1])
+	return nums, tmp
+}
+
+func MaxInt(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func MinInt(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 func PrettyPrint(v interface{}) {
