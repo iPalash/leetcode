@@ -16,4 +16,6 @@ Idea:
 Simple bfs to see if endWord is reachable
 Depth (+1) would be the answer 
 
-Quite slow, can we do better? !TODO
+Quite slow, can we do better? !TODO 
+
+Best according to lc, seems to be bidrectional bfs
