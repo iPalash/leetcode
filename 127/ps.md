@@ -12,3 +12,8 @@ wordList.len <= 5000
 wordList[i].len==beginWord.len
 
 Idea:
+
+Simple bfs to see if endWord is reachable
+Depth (+1) would be the answer 
+
+Quite slow, can we do better? !TODO
