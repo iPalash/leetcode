@@ -38,6 +38,14 @@ func ReadArrayAndN() ([]int, int) {
 	return nums, tmp
 }
 
+func StripQuotes(s string) string {
+	return strings.ReplaceAll(s, `"`, "")
+}
+
+func StripSquareBracketsFromEnd(s string) string {
+	return s[1 : len(s)-1]
+}
+
 func MaxInt(a, b int) int {
 	if a > b {
 		return a
