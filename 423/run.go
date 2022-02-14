@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"leetcode/common"
+	"strconv"
+	"strings"
 )
 
 /*
@@ -116,15 +118,12 @@ func getCount(mp map[byte]int, ch byte) int {
 }
 
 func originalDigits(s string) string {
-	count := make(map[byte]int)
-	for i, _ := range s {
-		if _, ok := count[s[i]]; ok &&
-			(s[i] == 'z' || s[i] == 'w' || s[i] == 'u' || s[i] == 'x' ||
-				s[i] == 'g' || s[i] == 's' || s[i] == 'f' || s[i] == 'h' ||
-				s[i] == 'i' || s[i] == 'o') {
-			count[s[i]] += 1
+	count := make(map[rune]int)
+	for _, el := range s {
+		if _, ok := count[el]; ok {
+			count[el] += 1
 		} else {
-			count[s[i]] = 1
+			count[el] = 1
 		}
 	}
 	counts := make([]int, 10)
@@ -148,15 +147,11 @@ func originalDigits(s string) string {
 	counts[7] = seven
 	counts[8] = eight
 	counts[9] = nine
-	ans := ""
-	for i, el := range counts {
-		for j := 0; j < el; j++ {
-			ans += fmt.Sprint(i)
-		}
+	var result strings.Builder
+	for i := 0; i < 10; i++ {
+		result.WriteString(strings.Repeat(strconv.Itoa(i), counts[i]))
 	}
-
-	// fmt.Println(zero, one, two, three, four, five, six, seven, eight, nine)
-	return ans
+	return result.String()
 }
 
 func main() {
