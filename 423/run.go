@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"leetcode/common"
-	"sort"
-	"strings"
 )
 
 /*
@@ -109,46 +107,53 @@ func removeCharForDigit(digits map[byte][]int, s string, digit int) (string, map
 	return s, digits
 }
 
-func originalDigits(s string) string {
-	mp := make(map[byte][]int)
-	for i := range s {
-		// fmt.Println(char(s[i]))
-		if _, ok := mp[s[i]]; ok {
-			mp[s[i]] = append(mp[s[i]], i)
-		} else {
-			mp[s[i]] = []int{i}
-		}
+func getCount(mp map[byte]int, ch byte) int {
+	if v, ok := mp[ch]; ok {
+		return v
+	} else {
+		return 0
 	}
-	// fmt.Println(mp)
-	digitMap := mapper()
-	var ans []int
-	for len(strings.ReplaceAll(s, "$", "")) > 0 {
-		// fmt.Println(s)
-		for i := 0; ; {
-			//Look for chr for digit
-			el := digitMap[i]
-			// fmt.Println(el.Digit, el.Char, s)
-			// fmt.Println(string(el.Char), el.Digit)
-			z := find(mp, el.Char, el.Digit)
-			if z != -1 {
-				// fmt.Println(digit, chr, z)
-				ans = append(ans, el.Digit)
-				s, mp = removeCharForDigit(mp, s, el.Digit)
-				if len(strings.ReplaceAll(s, "$", "")) == 0 {
-					break
-				}
-			} else {
-				i += 1
-			}
-		}
+}
 
+func originalDigits(s string) string {
+	count := make(map[byte]int)
+	for i, _ := range s {
+		if _, ok := count[s[i]]; ok {
+			count[s[i]] += 1
+		} else {
+			count[s[i]] = 1
+		}
 	}
-	sort.Ints(ans)
-	ansString := ""
-	for _, el := range ans {
-		ansString += fmt.Sprint(el)
+	counts := make([]int, 10)
+	zero := count['z']
+	two := count['w']
+	four := count['u']
+	six := count['x']
+	eight := count['g']
+	seven := count['s'] - six
+	five := count['f'] - four
+	three := count['h'] - eight
+	nine := count['i'] - five - six - eight
+	one := count['o'] - zero - two - four
+	counts[0] = zero
+	counts[1] = one
+	counts[2] = two
+	counts[3] = three
+	counts[4] = four
+	counts[5] = five
+	counts[6] = six
+	counts[7] = seven
+	counts[8] = eight
+	counts[9] = nine
+	ans := ""
+	for i, el := range counts {
+		for j := 0; j < el; j++ {
+			ans += fmt.Sprint(i)
+		}
 	}
-	return ansString
+
+	// fmt.Println(zero, one, two, three, four, five, six, seven, eight, nine)
+	return ans
 }
 
 func main() {
