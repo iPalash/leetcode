@@ -118,7 +118,10 @@ func getCount(mp map[byte]int, ch byte) int {
 func originalDigits(s string) string {
 	count := make(map[byte]int)
 	for i, _ := range s {
-		if _, ok := count[s[i]]; ok {
+		if _, ok := count[s[i]]; ok &&
+			(s[i] == 'z' || s[i] == 'w' || s[i] == 'u' || s[i] == 'x' ||
+				s[i] == 'g' || s[i] == 's' || s[i] == 'f' || s[i] == 'h' ||
+				s[i] == 'i' || s[i] == 'o') {
 			count[s[i]] += 1
 		} else {
 			count[s[i]] = 1
