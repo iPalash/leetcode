@@ -25,6 +25,33 @@ func ReadInput() []string {
 	return input
 }
 
+func ReadArrayWithNils() []*int {
+	s := ReadInput()
+	//Removing the []
+	arr := strings.Split(s[0][1:len(s[0])-1], ",")
+	var nums []*int
+	for _, v := range arr {
+		if tmp, err := strconv.Atoi((v)); err == nil {
+			nums = append(nums, &tmp)
+		} else {
+			nums = append(nums, nil)
+		}
+	}
+	return nums
+}
+
+func ReadArray() []int {
+	s := ReadInput()
+	//Removing the []
+	arr := strings.Split(s[0][1:len(s[0])-1], ",")
+	var nums []int
+	for _, v := range arr {
+		tmp, _ := strconv.Atoi((v))
+		nums = append(nums, tmp)
+	}
+	return nums
+}
+
 func ReadArrayAndN() ([]int, int) {
 	s := ReadInput()
 	//Removing the []
