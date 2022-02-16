@@ -1,10 +1,7 @@
-Link: <insert link here>
+# Link: <insert link here>
 
-Input: 
-Output:
+## Example
 
+## Constraints
 
-Constraints:
-
-
-Idea:
+## Idea
