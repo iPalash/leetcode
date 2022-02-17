@@ -1,6 +1,4 @@
-class Solution:
-    def search(self, nums: list[int], target:int) -> int:
-        def binary(nums, a, i, j):
+def binary(nums, a, i, j):
             m=(i+j)//2
             if i>j:
                 return -1
@@ -26,7 +24,25 @@ class Solution:
                     return binary(nums,a,i,m-1)
                 else:
                     return binary(nums,a,m+1,j)
-        return binary(nums,target,0,len(nums)-1)
+
+def getPivot(nums):
+    start,end = 0, len(nums)-1
+    while start<end:
+        mid=(start+end)//2
+        # print(start,mid,end)
+        # print(nums[start],nums[mid])
+        #TODO Try reversing the condition and finding pivot
+        if nums[mid]>nums[end]:
+            #Pivot to right
+            start=mid+1
+        else:
+            end=mid
+    return start
+
+class Solution:
+    def search(self, nums: list[int], target:int) -> int:
+        print(nums,len(nums),getPivot(nums))
+        # return binary(nums,target,0,len(nums)-1)
 
 
 arr=[int(el) for el in input()[1:-1].split(",")]

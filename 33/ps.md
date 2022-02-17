@@ -15,3 +15,7 @@ Output: 4
 ## Idea
 
 Modified binary search considering a pivot
+
+The logic works albeit a few too many steps
+
+Another question could be to find the pivot
