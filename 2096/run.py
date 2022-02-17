@@ -5,7 +5,8 @@
 #         self.left = left
 #         self.right = right
 
-from typing import Optional, Tuple
+from collections import defaultdict
+from typing import DefaultDict, Optional, Tuple
 
 class TreeNode:
     def __init__(self,val=0, left=None, right=None):
@@ -63,6 +64,15 @@ def paths(start:TreeNode, val:int, path:list=[]) -> bool:
         return True
     path.pop()
     return False
+
+def height(n:TreeNode, d:DefaultDict) -> int :
+    if n==None:
+        return 0
+    left = height(n.left, d)
+    right = height(n.right, d)
+    h = 1+max(left,right)
+    d[h].append(n.val)
+    return h
 class Solution:
     def getDirections(self, root: Optional[TreeNode], startValue: int, destValue: int) -> str:
         # print(root.val, startValue,destValue)
@@ -78,10 +88,17 @@ class Solution:
         right = "".join(right)
         left = "U"*len(left)
         return left+right
+    def random(self, root: TreeNode) -> list[list[int]]:
+        d = defaultdict(lambda :[])
+        height(root, d)
+        print(d)
+
 if __name__=='__main__':
     s = input()
     arr = [(lambda x: int(el) if el!="null" else None)(el) for el in s[1:-1].split(',')]
     start = int(input())
     end = int(input())
     # print(arr,start,end)
-    print(Solution().getDirections(constructTree(arr),start,end))
+    root = constructTree(arr)
+    # print(Solution().getDirections(root,start,end))
+    print(Solution().random(root))
