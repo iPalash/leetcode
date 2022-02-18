@@ -14,8 +14,8 @@ class Solution:
             print("idx:",start,end,mid)
             middle = nums[mid]
             print("elements:",first,middle,last)
-            if first<=middle>=last:
-                return mid
+            # if first<=middle>=last:
+            #     return mid
             if first>middle:
                 end = mid
             else:
