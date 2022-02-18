@@ -18,3 +18,6 @@ This can be done using two pointers and incrementing by incr i or decr by decrea
 
 Checking for duplicates, first idea was around using a hash of tuples 
 another easier way would be to play around with i and j when we find a match
+
+When we find a triplet keep decr and incr j/i until the new elements are unequal to the last values
+also do the same when traversing for k
