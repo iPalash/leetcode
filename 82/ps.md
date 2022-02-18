@@ -14,3 +14,6 @@ Output: [1,2,5]
 ## Idea
 
 Just del both nodes when curr=curr.next also having prev to point to curr.next.next
+Also take care of when that deleted matches the next
+
+!TODO the solutions seems slow, think upon a faster one without using the deleted jugaad
