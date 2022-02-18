@@ -17,3 +17,4 @@ Just del both nodes when curr=curr.next also having prev to point to curr.next.n
 Also take care of when that deleted matches the next
 
 !TODO the solutions seems slow, think upon a faster one without using the deleted jugaad
+Nevermind it wasn't slow, just too much printing but still find a cleaner way for this.
