@@ -13,4 +13,5 @@ Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,
 ## Idea
 
 - Keep two pointers left and right & change acc to which area is greater while maintaining the max
-- Instead of deciding by which area is greater switch to the next greater line of the min of current 
+- Instead of deciding by which area is greater switch to the next greater line of the min of current
+- On reconsideration, the first approach also seems correct since width would be the same and even when looking at area we are comparing height only and disregarding the min one (Check impl once sometime later) !TODO
