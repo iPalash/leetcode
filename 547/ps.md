@@ -10,3 +10,4 @@ Output: 2
 ## Idea
 
 Same as the previous one, count connected
+Can also use Union find for this one
