@@ -8,26 +8,22 @@ class Node:
 from typing import Optional
 
 class Solution:
-    def traverse(self, node: Node, isRight: bool):
+    def traverse(self, node: Node):
         if node!=None:
-            if isRight and node.next and node.next.next:
-                node.next = node.next.next.left
-                print("next of {} is {}".format(node.val,node.next.val))
-            elif isRight:
-                node.next = None
             if node.left:
                 node.left.next=node.right
                 print("next of {} is {}".format(node.left.val,node.right.val))
-                self.traverse(node.left, False)
+                self.traverse(node.left)
             if node.right:
-                node.right.next=node
-                self.traverse(node.right, True)
+                if node.next:
+                    node.right.next=node.next.left
+                self.traverse(node.right)
 
     def connect(self, root: Optional[Node]) -> Optional[Node]:
         print(root)
         if root==None:
             return root
-        self.traverse(root,False)
+        self.traverse(root)
         return root
 
 arr = [int(el) for el in input()[1:-1].split(',')]
