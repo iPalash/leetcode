@@ -14,3 +14,5 @@ Explanation: Given the above binary tree (Figure A), your function should popula
 ## Idea
 
 - Just like 116 but with for finding next we need to have a recursive logic to find the leftmost node of the next level
+- This one had a few edge cases, like None nodes not being in the array for parent lookup
+- Another one was how to traverse the tree, node right and then left else few next pointer would be missed since next won't be set for the right side of the tree
