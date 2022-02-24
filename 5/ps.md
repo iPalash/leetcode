@@ -15,3 +15,4 @@ Explanation: "aba" is also a valid answer.
 
 - The brute way of doing this is if s[0]==s[-1] then 1+pal(s[1:-1]) else max(pal(s[0:-1]),pal(s[1:]))
 - Apply memorisation on the above approach
+- Still too slow, try the mid approach
