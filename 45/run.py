@@ -7,27 +7,14 @@ class Solution:
             return 0
         i = 0
         jump = 0
-        j = -1
-        j_end = -1
-        while i<n:
-            jump+=1
-            if i+nums[i]>=n-1:
-                break
-            if j==-1:
-                j = i+1
-            else:
+        j = 0
+        j_end = 0
+        while i<n-1:
+            j_end = max(j_end,i+nums[i])
+            if i==j:
+                jump+=1
                 j = j_end
-            j_end =i+nums[i]
-
-            j_final = -1
-            mx = -math.inf
-            while j<j_end+1:
-                if nums[j]!=0 and j+nums[j]>mx:
-                    mx = j+nums[j]
-                    j_final = j
-                j+=1
-            print("jump from {} to {}".format(i,j_final))
-            i=j_final
+            i+=1
         return jump
 
 

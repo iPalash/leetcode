@@ -15,5 +15,6 @@ Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 st
 - An n2 approach would be j[i]= min over j b/w (i+1,i+a[i]) of (j[j]) in reverse with j(n-1)=0
 - The above was accepted but was slow
 - The greedy approach was to jump to the position which maximizes the opportunity for the next jump.
+- Another impl for the greedy one with hints from the solution !TODO revise
 
 
