@@ -17,3 +17,4 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
 
 - dp[i][j] = dp[i+1][j]+dp[i][j+1]
 - Can reduce it to just two size column arrays prv and curr & Return curr[0] at the end
+- Can reduce it further to just one array by doing curr[i] = curr[i] + curr[i+1] (remembering to set curr[-1] everytime back to zero - wait we can just remove this value and not go over it instead)
