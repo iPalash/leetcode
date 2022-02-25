@@ -13,3 +13,5 @@ Explanation: The longest increasing subsequence is [2,3,7,101], therefore the le
 ## Idea
 
 - A straightforward O(n2) approach is to store longest subsequence length ending at i in dp[i] and get max over all
+- How to this in O(NlogN)? 
+- The idea is to maintain a strictly increasing array and insert numbers into it on the go
