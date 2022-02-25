@@ -13,3 +13,4 @@ Explanation: The longest common subsequence is "ace" and its length is 3.
 ## Idea
 
 - l[i][j] = max(1+l[i-1][j-1] if s[i]==s[j], l[i-1][j], l[i][j-1])
+- optimise to use just a single array !TODO 
