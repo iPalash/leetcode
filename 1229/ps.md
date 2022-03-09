@@ -17,3 +17,6 @@ Output: [60,68]
 - min(ends) - max(starts) > duration 
 - Impl for this has too many edge cases, how to simplify this?
 - Try a 2 pointer approach for this which linear complexity after sorting
+- There is also a heap version of the solution which solves the subproblem of comparing while moving that caused so many edge case and twice pass necessary while doing binary search
+
+!TODO !RETRY
