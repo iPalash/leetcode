@@ -16,3 +16,4 @@ prodNums = [6,6,6,6,6,6], which is compressed into the run-length encoded array 
 
 - Two pointers in each array, multiply the correponding positions
 - Combine if the last one is equal to the current product
+- A cleaner way to do this would be to update freq in the original arrays there by simplifying the 3 conditions
