@@ -12,3 +12,5 @@
 - Get left max and right max at each index & sum of the diff of the min of these at each index
 
 - Try again with the stack method mentioned here : https://leetcode.com/problems/trapping-rain-water/solution/ !RETRY
+
+- Another one to try is the 2 pointer method
