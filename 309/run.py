@@ -4,23 +4,26 @@ class Solution:
         print(prices)
         n = len(prices)
 
-        buy = [-math.inf for _ in range(n+1)]
-        sell = [-math.inf for _ in range(n+1)]
-        rest = [-math.inf for _ in range(n+1)]
+        mp = [0 for _ in range(n+2)]
 
-        buy[0]=-math.inf
-        sell[0]=-math.inf
-        rest[0]=0
+        for i in range(n-1,-1,-1):
+            # buy and sell stock at i
+            
+            buy = prices[i]
 
-        
+            one = 0
 
-        for i,price in enumerate(prices):
-            i+=1
-            buy[i]= max(buy[i-1],rest[i-1]-price)
-            sell[i] = max(sell[i-1],buy[i-1]+price)
-            rest[i]=max(buy[i-1],rest[i-1],sell[i-1])
+            for j in range(i,n):
+                prof = prices[j]-buy + mp[j+2]
+                one = max(one,prof)
 
-        return max(sell[n],rest[n])
+            # do nothing
+
+            two = mp[i+1]
+            
+            mp[i] = max(one,two)
+        return mp[0]
+
 
 
 prices = [int(el) for el in input()[1:-1].split(",")]

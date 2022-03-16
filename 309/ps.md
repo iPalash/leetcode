@@ -14,3 +14,5 @@
 
 - had to take a look at the solution to solve this, a 3-state dp was required, I was trying with just two
 - The other DP solution looked like what I was trying to do but will take a look at it later, not getting the approach right now.
+
+- Added the second DP Solution as well
