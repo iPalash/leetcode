@@ -57,5 +57,5 @@ class Solution:
 
 heights = [[int(el) for el in row.split(',')] for row in input()[2:-2].split('],[')]
 
-print(Solution().pacificAtlanctic(heights))
+print(Solution().pacificAtlantic(heights))
 
