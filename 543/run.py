@@ -40,14 +40,14 @@ def readTree(arr):
         
 class Solution:
     def diameterOfBinaryTree(self, root: TreeNode) -> int:
-        mx = 1
+        mx = 0
 
         def traverse(node):
             nonlocal mx
             if node:
                 l = traverse(node.left)
                 r = traverse(node.right)
-                mx = max(1+l+r,mx)
+                mx = max(l+r,mx)
                 return max(l,r)+1
             return 0
 
