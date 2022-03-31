@@ -21,14 +21,14 @@ class Solution:
             return 0
         h = []
         for child in node.children:
-            heapq.heappush(h,-self.traverse(child))
+            heapq.heappush(h,self.traverse(child))
+            if len(h)>2:
+                heapq.heappop(h)
         p = 0
         mx=0
         if len(h)>0:
-            mx = -heapq.heappop(h) 
-            p+=mx
-        if len(h)>0:
-            p-=heapq.heappop(h)
+            mx = max(h) 
+            p+=sum(h)
         self.ans=max(self.ans,p)
         return 1+mx
                 
