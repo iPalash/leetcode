@@ -1,5 +1,5 @@
 class Solution:
-    def insertInterval(self, intervals: list[list[int]], newInterval: list[int]) -> list[list[int]]:
+    def insert(self, intervals: list[list[int]], newInterval: list[int]) -> list[list[int]]:
         print(intervals, newInterval)
 
 
@@ -54,6 +54,6 @@ intervals = [[int(el) for el in row.split(',')] for row in input()[2:-2].split('
 
 newInterval = [int(el) for el in input()[1:-1].split(',')]
 
-print(Solution().insertInterval(intervals,newInterval))
+print(Solution().insert(intervals,newInterval))
 
 
